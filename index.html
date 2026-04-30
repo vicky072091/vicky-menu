@@ -7,507 +7,515 @@
 <title>捷順 JieSoon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  /* System font priority for Chinese - loads instantly */
+  :lang(zh), .zh-text {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', -apple-system, 'PingFang TC', 'PingFang HK', 'Heiti TC', 'Microsoft JhengHei', sans-serif !important;
+  }
+</style>
+
 <style>
   a { color: inherit; text-decoration: none; }
   a:visited { color: inherit; }
 
-:root {
-–beige: #f5efe6;
-–warm-beige: #ede3d5;
-–light-coffee: #c9aa85;
-–coffee: #a07850;
-–dark-coffee: #6b4f32;
-–champagne: #d4af72;
-–champagne-light: #e8d5a3;
-–champagne-deep: #b8943f;
-–white: #faf8f5;
-–text-dark: #2c1f10;
-–text-mid: #5a3e28;
-–text-light: #9a7d5c;
-}
+  :root {
+    --beige: #f5efe6;
+    --warm-beige: #ede3d5;
+    --light-coffee: #c9aa85;
+    --coffee: #a07850;
+    --dark-coffee: #6b4f32;
+    --champagne: #d4af72;
+    --champagne-light: #e8d5a3;
+    --champagne-deep: #b8943f;
+    --white: #faf8f5;
+    --text-dark: #2c1f10;
+    --text-mid: #5a3e28;
+    --text-light: #9a7d5c;
+  }
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
-body {
-background: var(–white);
-color: var(–text-dark);
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, ‘Georgia’, sans-serif;
-overflow-x: hidden;
-}
+  body {
+    background: var(--white);
+    color: var(--text-dark);
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Georgia', sans-serif;
+    overflow-x: hidden;
+  }
 
-/* ── NAV ── */
-nav {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 100;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1.2rem 6vw;
-background: linear-gradient(to bottom, rgba(15,8,2,0.6), transparent);
-transition: background 0.4s;
-}
-nav.scrolled {
-background: rgba(15,8,2,0.92);
-backdrop-filter: blur(12px);
-border-bottom: 1px solid rgba(212,175,114,0.18);
-}
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 6vw;
+    background: linear-gradient(to bottom, rgba(15,8,2,0.6), transparent);
+    transition: background 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(15,8,2,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,114,0.18);
+  }
 
-.nav-logo {
-display: flex;
-align-items: center;
-gap: 0.5rem;
-text-decoration: none !important;
-}
-.nav-logo-img {
-width: 28px;
-height: 28px;
-object-fit: contain;
-image-rendering: -webkit-optimize-contrast;
-image-rendering: crisp-edges;
-filter: drop-shadow(0 0 4px rgba(212,175,114,0.4));
-}
-.nav-logo-text {
-font-family: ‘Cinzel’, ‘Palatino Linotype’, serif;
-font-size: 1.05rem;
-font-weight: 500;
-letter-spacing: 0.22em;
-color: #e8d5a3 !important;
-line-height: 1;
-}
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none !important;
+  }
+  .nav-logo-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 0 4px rgba(212,175,114,0.4));
+  }
+  .nav-logo-text {
+    font-family: 'Cinzel', 'Palatino Linotype', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: #e8d5a3 !important;
+    line-height: 1;
+  }
 
-.nav-social {
-display: flex;
-gap: 0.9rem;
-align-items: center;
-}
-.social-btn {
-display: flex;
-align-items: center;
-justify-content: center;
-width: 38px;
-height: 38px;
-border-radius: 50%;
-border: 1px solid rgba(212,175,114,0.45);
-background: rgba(212,175,114,0.08);
-transition: all 0.3s;
-backdrop-filter: blur(6px);
-}
-.social-btn:hover {
-background: rgba(212,175,114,0.22);
-border-color: var(–champagne);
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(212,175,114,0.2);
-}
-.social-btn svg { width: 16px; height: 16px; fill: #e8d5a3; }
+  .nav-social {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+  }
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,175,114,0.45);
+    background: rgba(212,175,114,0.08);
+    transition: all 0.3s;
+    backdrop-filter: blur(6px);
+  }
+  .social-btn:hover {
+    background: rgba(212,175,114,0.22);
+    border-color: var(--champagne);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212,175,114,0.2);
+  }
+  .social-btn svg { width: 16px; height: 16px; fill: #e8d5a3; }
 
-/* ── HERO ── */
-.hero {
-position: relative;
-height: 100vh;
-min-height: 700px;
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-overflow: hidden;
-}
-.hero-bg {
-position: absolute;
-inset: 0;
-background-size: cover;
-background-position: center 30%;
-background-repeat: no-repeat;
-transform: scale(1.05);
-animation: heroZoom 12s ease-out forwards;
-}
-@keyframes heroZoom {
-from { transform: scale(1.05); }
-to   { transform: scale(1.0); }
-}
-.hero-overlay {
-position: absolute;
-inset: 0;
-background: linear-gradient(
-to bottom,
-rgba(20,12,5,0.22) 0%,
-rgba(20,12,5,0.12) 28%,
-rgba(20,12,5,0.62) 65%,
-rgba(10,5,1,0.92) 100%
-);
-}
-.hero-content {
-position: relative;
-z-index: 2;
-padding: 0 8vw 7vh;
-animation: fadeUp 1.4s 0.4s cubic-bezier(.22,1,.36,1) both;
-}
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(40px); }
-to   { opacity: 1; transform: translateY(0); }
-}
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    transform: scale(1.05);
+    animation: heroZoom 12s ease-out forwards;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.0); }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(20,12,5,0.22) 0%,
+      rgba(20,12,5,0.12) 28%,
+      rgba(20,12,5,0.62) 65%,
+      rgba(10,5,1,0.92) 100%
+    );
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 8vw 7vh;
+    animation: fadeUp 1.4s 0.4s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
-.hero-tag {
-font-family: ‘Cinzel’, ‘Palatino Linotype’, serif;
-font-size: clamp(0.62rem, 1.1vw, 0.76rem);
-letter-spacing: 0.38em;
-color: #d4af72;
-text-transform: uppercase;
-margin-bottom: 1.1rem;
-text-shadow: 0 1px 8px rgba(0,0,0,0.7);
-}
+  .hero-tag {
+    font-family: 'Cinzel', 'Palatino Linotype', serif;
+    font-size: clamp(0.62rem, 1.1vw, 0.76rem);
+    letter-spacing: 0.38em;
+    color: #d4af72;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+  }
 
-/* Brand line: logo icon + 捷順 JieSoon */
-.hero-brand-line {
-display: flex;
-align-items: center;
-gap: 0.6em;
-margin-bottom: 0.5rem;
-}
-.hero-logo-icon {
-/* same visual height as the Chinese characters */
-height: clamp(2.6rem, 6.5vw, 5rem);
-width: auto;
-object-fit: contain;
-image-rendering: -webkit-optimize-contrast;
-image-rendering: crisp-edges;
-filter: drop-shadow(0 2px 10px rgba(212,175,114,0.5));
-flex-shrink: 0;
-}
-.hero-brand {
-font-family: ‘Cinzel’, ‘Palatino Linotype’, serif;
-font-size: clamp(2.6rem, 6.5vw, 5rem);
-font-weight: 600;
-color: #ffffff;
-line-height: 1.05;
-letter-spacing: 0.06em;
-text-shadow: 0 2px 20px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.9);
-white-space: nowrap;
-}
-.hero-brand .zh {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, ‘Georgia’, sans-serif;
-font-weight: 600;
-letter-spacing: 0.1em;
-}
+  /* Brand line: logo icon + 捷順 JieSoon */
+  .hero-brand-line {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-logo-icon {
+    /* same visual height as the Chinese characters */
+    height: clamp(2.6rem, 6.5vw, 5rem);
+    width: auto;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 2px 10px rgba(212,175,114,0.5));
+    flex-shrink: 0;
+  }
+  .hero-brand {
+    font-family: 'Cinzel', 'Palatino Linotype', serif;
+    font-size: clamp(2.6rem, 6.5vw, 5rem);
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.05;
+    letter-spacing: 0.06em;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.9);
+    white-space: nowrap;
+  }
+  .hero-brand .zh {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Georgia', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
 
-.hero-divider {
-width: 55px;
-height: 1px;
-background: linear-gradient(90deg, #d4af72, transparent);
-margin-bottom: 1.3rem;
-}
-.hero-tagline {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, ‘Georgia’, sans-serif;
-font-size: clamp(1rem, 2vw, 1.25rem);
-font-weight: 500;
-color: #f0e0b0;
-letter-spacing: 0.28em;
-margin-bottom: 0.6rem;
-text-shadow: 0 1px 12px rgba(0,0,0,0.75);
-}
-.hero-fleet {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, ‘Georgia’, sans-serif;
-font-size: clamp(0.85rem, 1.5vw, 0.98rem);
-font-weight: 400;
-color: rgba(245,239,230,0.9);
-letter-spacing: 0.15em;
-line-height: 1.9;
-margin-bottom: 1.8rem;
-text-shadow: 0 1px 10px rgba(0,0,0,0.7);
-}
-.hero-sub {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, ‘Georgia’, sans-serif;
-font-size: clamp(0.78rem, 1.3vw, 0.9rem);
-font-weight: 400;
-color: rgba(245,239,230,0.72);
-letter-spacing: 0.22em;
-text-shadow: 0 1px 8px rgba(0,0,0,0.6);
-}
+  .hero-divider {
+    width: 55px;
+    height: 1px;
+    background: linear-gradient(90deg, #d4af72, transparent);
+    margin-bottom: 1.3rem;
+  }
+  .hero-tagline {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Georgia', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    color: #f0e0b0;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6rem;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.75);
+  }
+  .hero-fleet {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Georgia', sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 0.98rem);
+    font-weight: 400;
+    color: rgba(245,239,230,0.9);
+    letter-spacing: 0.04em;
+    line-height: 1.9;
+    margin-bottom: 1.8rem;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.7);
+  }
+  .hero-sub {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Georgia', sans-serif;
+    font-size: clamp(0.78rem, 1.3vw, 0.9rem);
+    font-weight: 400;
+    color: rgba(245,239,230,0.72);
+    letter-spacing: 0.08em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  }
 
-/* ── SECTIONS ── */
-section { padding: 6rem 8vw; }
+  /* ── SECTIONS ── */
+  section { padding: 6rem 8vw; }
 
-.section-label {
-font-family: ‘Cinzel’, ‘Palatino Linotype’, serif;
-font-size: 0.68rem;
-letter-spacing: 0.4em;
-color: var(–champagne-deep);
-text-transform: uppercase;
-margin-bottom: 0.8rem;
-}
-.section-title {
-font-family: ‘Cormorant Garamond’, ‘Garamond’, ‘Georgia’, serif;
-font-size: clamp(2rem, 4vw, 3rem);
-font-weight: 400;
-color: var(–text-dark);
-letter-spacing: 0.02em;
-line-height: 1.2;
-margin-bottom: 0.5rem;
-}
-.section-title-zh {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, sans-serif;
-font-size: clamp(1.1rem, 2vw, 1.4rem);
-font-weight: 300;
-color: var(–coffee);
-letter-spacing: 0.12em;
-margin-bottom: 2.5rem;
-}
-.gold-line {
-width: 50px;
-height: 2px;
-background: linear-gradient(90deg, var(–champagne), var(–champagne-light), transparent);
-margin-bottom: 2.5rem;
-}
+  .section-label {
+    font-family: 'Cinzel', 'Palatino Linotype', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.4em;
+    color: var(--champagne-deep);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', 'Garamond', 'Georgia', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .section-title-zh {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    color: var(--coffee);
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+  }
+  .gold-line {
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--champagne), var(--champagne-light), transparent);
+    margin-bottom: 2.5rem;
+  }
 
-/* ── SERVICES ── */
-.services-section { background: var(–beige); }
-.services-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 2px;
-}
-.service-card {
-background: var(–white);
-padding: 2.8rem 2.2rem;
-position: relative;
-overflow: hidden;
-transition: transform 0.4s cubic-bezier(.22,1,.36,1);
-}
-.service-card::before {
-content: ‘’;
-position: absolute;
-bottom: 0; left: 0; right: 0;
-height: 2px;
-background: linear-gradient(90deg, var(–champagne), var(–champagne-light));
-transform: scaleX(0);
-transition: transform 0.4s;
-}
-.service-card:hover::before { transform: scaleX(1); }
-.service-card:hover { transform: translateY(-4px); }
-.card-num {
-font-family: ‘Cormorant Garamond’, ‘Garamond’, ‘Georgia’, serif;
-font-size: 2.5rem;
-font-weight: 300;
-color: var(–champagne-light);
-opacity: 0.5;
-line-height: 1;
-margin-bottom: 1rem;
-}
-.card-title {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, sans-serif;
-font-size: 1.05rem;
-font-weight: 500;
-color: var(–text-dark);
-letter-spacing: 0.05em;
-margin-bottom: 0.8rem;
-}
-.card-en {
-font-family: ‘Cormorant Garamond’, ‘Garamond’, ‘Georgia’, serif;
-font-size: 0.85rem;
-font-style: italic;
-color: var(–text-light);
-letter-spacing: 0.05em;
-margin-bottom: 1.2rem;
-}
-.card-desc {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, sans-serif;
-font-size: 0.82rem;
-font-weight: 300;
-color: var(–text-mid);
-line-height: 2;
-letter-spacing: 0.08em;
-}
+  /* ── SERVICES ── */
+  .services-section { background: #f5efe6 !important; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+  }
+  .service-card {
+    background: #faf8f5 !important;
+    padding: 2.8rem 2.2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(.22,1,.36,1);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--champagne), var(--champagne-light));
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { transform: translateY(-4px); }
+  .card-num {
+    font-family: 'Cormorant Garamond', 'Garamond', 'Georgia', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--champagne-light);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+  }
+  .card-en {
+    font-family: 'Cormorant Garamond', 'Garamond', 'Georgia', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.2rem;
+  }
+  .card-desc {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 2;
+    letter-spacing: 0.02em;
+  }
 
-/* ── VEHICLE ── */
-.vehicle-section {
-background: linear-gradient(135deg, #1a0f06 0%, #2d1a0a 50%, #1a0f06 100%);
-color: var(–white);
-position: relative;
-overflow: hidden;
-}
-.vehicle-section::before {
-content: ‘’;
-display: none;
-}
-.vehicle-watermark {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 70vw;
-max-width: 600px;
-opacity: 0.07;
-filter: grayscale(100%) brightness(2);
-pointer-events: none;
-z-index: 0;
-}
-.vehicle-section .section-title { color: var(–champagne-light); }
-.vehicle-section .section-title-zh { color: rgba(232,213,163,0.6); }
-.vehicle-inner {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 5rem;
-align-items: center;
-position: relative;
-z-index: 1;
-}
-@media (max-width: 768px) {
-.vehicle-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-}
-.vehicle-photo {
-border-radius: 2px;
-overflow: hidden;
-position: relative;
-}
-.vehicle-photo::after {
-content: ‘’;
-position: absolute;
-inset: 0;
-border: 1px solid rgba(212,175,114,0.25);
-pointer-events: none;
-}
-.vehicle-photo img {
-width: 100%;
-display: block;
-filter: brightness(0.95) contrast(1.05);
-}
-.vehicle-specs { display: flex; flex-direction: column; gap: 1.8rem; }
-.spec-item {
-display: flex;
-align-items: flex-start;
-gap: 1.2rem;
-padding-bottom: 1.8rem;
-border-bottom: 1px solid rgba(212,175,114,0.12);
-}
-.spec-item:last-child { border-bottom: none; padding-bottom: 0; }
-.spec-icon {
-width: 2px;
-height: 36px;
-background: linear-gradient(to bottom, var(–champagne), transparent);
-flex-shrink: 0;
-margin-top: 4px;
-}
-.spec-label {
-font-family: ‘Cinzel’, ‘Palatino Linotype’, serif;
-font-size: 0.65rem;
-letter-spacing: 0.3em;
-color: var(–champagne);
-margin-bottom: 0.4rem;
-}
-.spec-value {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, ‘Georgia’, sans-serif;
-font-size: 0.9rem;
-font-weight: 300;
-color: rgba(245,239,230,0.85);
-letter-spacing: 0.1em;
-line-height: 1.7;
-}
+  /* ── VEHICLE ── */
+  .vehicle-section {
+    background: linear-gradient(135deg, #1a0f06 0%, #2d1a0a 50%, #1a0f06 100%);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .vehicle-section::before {
+    content: '';
+    display: none;
+  }
+  .vehicle-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(70vw, 500px);
+    height: auto;
+    opacity: 0.08;
+    filter: grayscale(100%) brightness(2.5) contrast(0.8);
+    pointer-events: none;
+    z-index: 0;
+    display: block;
+  }
+  .vehicle-section .section-title { color: var(--champagne-light); }
+  .vehicle-section .section-title-zh { color: rgba(232,213,163,0.6); }
+  .vehicle-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 768px) {
+    .vehicle-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+  .vehicle-photo {
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .vehicle-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(212,175,114,0.25);
+    pointer-events: none;
+  }
+  .vehicle-photo img {
+    width: 100%;
+    display: block;
+    filter: brightness(0.95) contrast(1.05);
+  }
+  .vehicle-specs { display: flex; flex-direction: column; gap: 1.8rem; }
+  .spec-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(212,175,114,0.12);
+  }
+  .spec-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .spec-icon {
+    width: 2px;
+    height: 36px;
+    background: linear-gradient(to bottom, var(--champagne), transparent);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .spec-label {
+    font-family: 'Cinzel', 'Palatino Linotype', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--champagne);
+    margin-bottom: 0.4rem;
+  }
+  .spec-value {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Georgia', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(245,239,230,0.85);
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+  }
 
-/* ── CONTACT ── */
-.contact-section { background: var(–warm-beige); text-align: center; }
-.contact-inner { max-width: 600px; margin: 0 auto; }
-.contact-tagline {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, sans-serif;
-font-size: clamp(1.1rem, 2vw, 1.4rem);
-font-weight: 500;
-color: var(–text-dark);
-letter-spacing: 0.08em;
-margin-bottom: 0.6rem;
-margin-top: 1rem;
-}
-.contact-fleet {
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, sans-serif;
-font-size: clamp(1rem, 1.8vw, 1.15rem);
-font-style: normal;
-font-weight: 400;
-color: var(–coffee);
-letter-spacing: 0.08em;
-line-height: 1.8;
-}
-.contact-social {
-display: flex;
-justify-content: center;
-gap: 1.2rem;
-margin-top: 2.8rem;
-flex-wrap: wrap;
-}
-.contact-btn {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-padding: 1rem 1.8rem;
-border: 1px solid #c9aa85;
-background: transparent;
-text-decoration: none !important;
-font-family: ‘Noto Serif TC’, ‘Noto Sans TC’, ‘PingFang TC’, ‘Microsoft JhengHei’, ‘Georgia’, sans-serif;
-font-size: 0.85rem;
-font-weight: 400;
-color: #5a3e28 !important;
-letter-spacing: 0.15em;
-transition: all 0.35s cubic-bezier(.22,1,.36,1);
-position: relative;
-overflow: hidden;
-}
-.contact-btn:visited, .contact-btn:link { color: #5a3e28 !important; }
-.contact-btn::before {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: var(–champagne);
-transform: translateY(100%);
-transition: transform 0.35s cubic-bezier(.22,1,.36,1);
-z-index: 0;
-}
-.contact-btn:hover::before { transform: translateY(0); }
-.contact-btn:hover { color: var(–text-dark) !important; border-color: var(–champagne); }
-.contact-btn svg, .contact-btn span { position: relative; z-index: 1; }
-.contact-btn svg { width: 20px; height: 20px; }
-.contact-email {
-margin-top: 2.5rem;
-font-family: ‘Cormorant Garamond’, ‘Garamond’, ‘Georgia’, serif;
-font-size: 1rem;
-font-style: italic;
-color: var(–text-light);
-letter-spacing: 0.08em;
-}
-.contact-email a {
-color: #a07850 !important;
-text-decoration: none !important;
-border-bottom: 1px solid rgba(160,120,80,0.3);
-transition: border-color 0.3s;
-}
-.contact-email a:visited { color: #a07850 !important; }
-.contact-email a:hover { border-color: var(–champagne-deep); }
+  /* ── CONTACT ── */
+  .contact-section { background: #ede3d5 !important; text-align: center; }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-tagline {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.6rem;
+    margin-top: 1rem;
+  }
+  .contact-fleet {
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--coffee);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  .contact-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 2.8rem;
+    flex-wrap: wrap;
+  }
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.8rem;
+    border: 1px solid #c9aa85;
+    background: transparent;
+    text-decoration: none !important;
+    font-family: 'Noto Serif TC', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Georgia', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #5a3e28 !important;
+    letter-spacing: 0.04em;
+    transition: all 0.35s cubic-bezier(.22,1,.36,1);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-btn:visited, .contact-btn:link { color: #5a3e28 !important; }
+  .contact-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--champagne);
+    transform: translateY(100%);
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+    z-index: 0;
+  }
+  .contact-btn:hover::before { transform: translateY(0); }
+  .contact-btn:hover { color: var(--text-dark) !important; border-color: var(--champagne); }
+  .contact-btn svg, .contact-btn span { position: relative; z-index: 1; }
+  .contact-btn svg { width: 20px; height: 20px; }
+  .contact-email {
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', 'Garamond', 'Georgia', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+  }
+  .contact-email a {
+    color: #a07850 !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(160,120,80,0.3);
+    transition: border-color 0.3s;
+  }
+  .contact-email a:visited { color: #a07850 !important; }
+  .contact-email a:hover { border-color: var(--champagne-deep); }
 
-/* ── FOOTER ── */
-footer {
-background: #0f0802;
-color: rgba(232,213,163,0.45);
-text-align: center;
-padding: 2.5rem 6vw;
-font-family: ‘Cinzel’, ‘Palatino Linotype’, serif;
-font-size: 0.65rem;
-letter-spacing: 0.25em;
-}
-footer .footer-brand {
-font-size: 0.9rem;
-color: rgba(232,213,163,0.65);
-margin-bottom: 0.6rem;
-letter-spacing: 0.3em;
-}
+  /* ── FOOTER ── */
+  footer {
+    background: #0f0802;
+    color: rgba(232,213,163,0.45);
+    text-align: center;
+    padding: 2.5rem 6vw;
+    font-family: 'Cinzel', 'Palatino Linotype', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+  }
+  footer .footer-brand {
+    font-size: 0.9rem;
+    color: rgba(232,213,163,0.65);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.3em;
+  }
 
-/* ── SCROLL REVEAL ── */
-.reveal {
-opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.8s cubic-bezier(.22,1,.36,1), transform 0.8s cubic-bezier(.22,1,.36,1);
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.22s; }
-.reveal-delay-3 { transition-delay: 0.34s; }
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(.22,1,.36,1), transform 0.8s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.22s; }
+  .reveal-delay-3 { transition-delay: 0.34s; }
 </style>
 
 </head>
@@ -545,9 +553,9 @@ transition: opacity 0.8s cubic-bezier(.22,1,.36,1), transform 0.8s cubic-bezier(
       <h1 class="hero-brand"><span class="zh">捷順</span> JieSoon</h1>
     </div>
     <div class="hero-divider"></div>
-    <p class="hero-tagline">值得信賴的專業夥伴</p>
-    <p class="hero-fleet">從一台車到整個車隊，我們都能為您安排到位。</p>
-    <p class="hero-sub">商務包車　｜　機場接送　｜　企業配合</p>
+    <p class="hero-tagline zh-text">值得信賴的專業夥伴</p>
+    <p class="hero-fleet zh-text">從一台車到整個車隊，我們都能為您安排到位。</p>
+    <p class="hero-sub zh-text">商務包車　｜　機場接送　｜　企業配合</p>
   </div>
 </section>
 
@@ -557,27 +565,27 @@ transition: opacity 0.8s cubic-bezier(.22,1,.36,1), transform 0.8s cubic-bezier(
   <div class="reveal">
     <p class="section-label">Our Services</p>
     <h2 class="section-title">Premium Services</h2>
-    <p class="section-title-zh">頂級服務項目</p>
+    <p class="section-title-zh zh-text">頂級服務項目</p>
     <div class="gold-line"></div>
   </div>
   <div class="services-grid">
     <div class="service-card reveal reveal-delay-1">
       <div class="card-num">01</div>
-      <h3 class="card-title">商務包車</h3>
+      <h3 class="card-title zh-text">商務包車</h3>
       <p class="card-en">Business Charter</p>
-      <p class="card-desc">專屬司機全程陪同，彈性規劃行程路線，讓您在舒適的車廂中專注於每一個重要行程。單車至整個車隊，皆可彈性預約安排。</p>
+      <p class="card-desc zh-text">專屬司機全程陪同，彈性規劃行程路線，讓您在舒適的車廂中專注於每一個重要行程。單車至整個車隊，皆可彈性預約安排。</p>
     </div>
     <div class="service-card reveal reveal-delay-2">
       <div class="card-num">02</div>
-      <h3 class="card-title">機場接送</h3>
+      <h3 class="card-title zh-text">機場接送</h3>
       <p class="card-en">Airport Transfer</p>
-      <p class="card-desc">桃園、松山、高雄各大機場接送服務，即時掌握班機動態，確保準時到達，讓旅程從機場第一步起就無比從容。</p>
+      <p class="card-desc zh-text">桃園、松山、高雄各大機場接送服務，即時掌握班機動態，確保準時到達，讓旅程從機場第一步起就無比從容。</p>
     </div>
     <div class="service-card reveal reveal-delay-3">
       <div class="card-num">03</div>
-      <h3 class="card-title">企業配合</h3>
+      <h3 class="card-title zh-text">企業配合</h3>
       <p class="card-en">Corporate Partnership</p>
-      <p class="card-desc">提供企業長期合作方案，接待貴賓、員工通勤、商務活動用車，量身打造最適合貴公司的專屬用車計畫。</p>
+      <p class="card-desc zh-text">提供企業長期合作方案，接待貴賓、員工通勤、商務活動用車，量身打造最適合貴公司的專屬用車計畫。</p>
     </div>
   </div>
 </section>
@@ -594,35 +602,35 @@ transition: opacity 0.8s cubic-bezier(.22,1,.36,1), transform 0.8s cubic-bezier(
       <div>
         <p class="section-label" style="color:var(--champagne)">Our Fleet</p>
         <h2 class="section-title">Luxury Fleet</h2>
-        <p class="section-title-zh">頂級座駕車隊</p>
+        <p class="section-title-zh zh-text">頂級座駕車隊</p>
         <div class="gold-line"></div>
       </div>
       <div class="spec-item">
         <div class="spec-icon"></div>
         <div>
           <p class="spec-label">Vehicle Type</p>
-          <p class="spec-value">頂級商務 MPV 車款<br>Toyota Alphard Hybrid 及同級車系</p>
+          <p class="spec-value zh-text">頂級商務 MPV 車款<br>Toyota Alphard Hybrid 及同級車系</p>
         </div>
       </div>
       <div class="spec-item">
         <div class="spec-icon"></div>
         <div>
           <p class="spec-label">Capacity</p>
-          <p class="spec-value">7 — 9 人座寬敞空間<br>商務配備・行李充裕</p>
+          <p class="spec-value zh-text">7 — 9 人座寬敞空間<br>商務配備・行李充裕</p>
         </div>
       </div>
       <div class="spec-item">
         <div class="spec-icon"></div>
         <div>
           <p class="spec-label">Availability</p>
-          <p class="spec-value">單車預約 / 車隊包辦<br>24 小時全年無休服務</p>
+          <p class="spec-value zh-text">單車預約 / 車隊包辦<br>24 小時全年無休服務</p>
         </div>
       </div>
       <div class="spec-item">
         <div class="spec-icon"></div>
         <div>
           <p class="spec-label">Service Area</p>
-          <p class="spec-value">全台灣各縣市・各大機場<br>國內外旅遊專程安排</p>
+          <p class="spec-value zh-text">全台灣各縣市・各大機場<br>國內外旅遊專程安排</p>
         </div>
       </div>
     </div>
@@ -636,11 +644,11 @@ transition: opacity 0.8s cubic-bezier(.22,1,.36,1), transform 0.8s cubic-bezier(
     <div class="reveal">
       <p class="section-label">Contact Us</p>
       <h2 class="section-title">Reserve Now</h2>
-      <p class="section-title-zh">立即預約諮詢</p>
+      <p class="section-title-zh zh-text">立即預約諮詢</p>
       <div class="gold-line" style="margin: 0 auto 2rem;"></div>
-      <p class="contact-tagline">值得信賴的專業夥伴</p>
+      <p class="contact-tagline zh-text">值得信賴的專業夥伴</p>
       <p class="contact-fleet">從一台車到整個車隊，我們都能為您安排到位。</p>
-      <p style="font-family:'Noto Serif TC',serif;font-size:0.82rem;font-weight:300;color:var(--text-light);letter-spacing:0.15em;line-height:2.4;margin-top:1rem;">
+      <p style="font-family:'Noto Serif TC',serif;font-size:0.82rem;font-weight:300;color:var(--text-light);letter-spacing:0.02em;line-height:2.4;margin-top:1rem;">
         歡迎透過以下平台與我們聯繫<br>我們將盡快為您提供最完整的行程報價
       </p>
     </div>
